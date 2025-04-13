@@ -29,7 +29,7 @@ class Book(db.Model):
         return f'<Book: {self.title}>'
 
     def __repr__(self):
-        return f'<Book: {self.title}>'
+        return f'<Book: {self.title}, Author: {self.author.name}, Publish Date: {self.publish_date}, Audience: {self.audience.name}>'
 
 class Author(db.Model):
     """Author model."""
@@ -41,7 +41,7 @@ class Author(db.Model):
         return f'<Author: {self.name}>'
 
     def __repr__(self):
-        return f'<Author: {self.name}>'
+        return f'<Author: {self.name}, Books: {[book.title for book in self.books]}>'
 
 class Genre(db.Model):
     """Genre model."""
@@ -53,7 +53,7 @@ class Genre(db.Model):
         return f'<Genre: {self.name}>'
 
     def __repr__(self):
-        return f'<Genre: {self.name}>'
+        return f'<Genre: {self.name}, Books: {[book.title for book in self.books]}>'
 
 book_genre_table = db.Table('book_genre',
     db.Column('book_id', db.Integer, db.ForeignKey('book.id')),
