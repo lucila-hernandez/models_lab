@@ -4,6 +4,9 @@
 
 You are visiting the homepage.
 
-<!-- TODO: Display a list of users here, with each linking to their profile -->
+<ul>
+    <li><a href="{{ url_for('main.profile', username='john_doe') }}">john_doe</a></li>
+    <li><a href="{{ url_for('main.profile', username='lucila_hernandez') }}">lucila_hernandez</a></li>
+</ul>
 
 {% endblock %}
